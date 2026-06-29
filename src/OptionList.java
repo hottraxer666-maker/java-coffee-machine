@@ -28,6 +28,7 @@ public class OptionList {
                 break;
             case 3:
                 ingredients.showIngredients();
+                logs.addLogs(Options.INGREDIENTSSTORE.getMessage());
                 break;
             case 4:
                 ingredients.restoreIngredients();

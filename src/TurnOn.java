@@ -1,6 +1,6 @@
 public class TurnOn {
     Logs logs = new Logs();
-    private boolean isOn=false;
+    private static boolean isOn=false;
     public void start(){
         System.out.println("Включить кофемашину?\n1.Да\n2.Нет");
         int num = ScannerService.scanInt();

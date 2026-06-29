@@ -15,14 +15,16 @@ public class DrinksService {
                 if(name.toLowerCase().equals(drink.getName().toLowerCase())){
                     isCorrect=true;
                     buyDrink(drink);
-                    logs.addLogs(Options.BUYDRINK.drinkMessage(drink.getName()));
                 }
             }
             for(CustomDrinks drink: customDrinks.getDrinks()){
                 if(name.toLowerCase().equals(drink.getName().toLowerCase())){
+                    isCorrect=true;
                     customDrinks.buyDrink(drink);
-                    logs.addLogs(Options.BUYDRINK.drinkMessage(drink.getName()));
                 }
+            }
+            if(!isCorrect){
+                System.out.println("Ошибка!Данного напитка нет ни в одном списке!Попробуйте ещё раз");
             }
         }
 
@@ -35,8 +37,14 @@ public class DrinksService {
         System.out.println("]");
     }
     protected void buyDrink(Drinks drink){
+        if(drink.getMilk()>ingredients.getMilk()||drink.getWater()>ingredients.getWater()||drink.getCoffee()>ingredients.getCoffee()){
+            System.out.println("Ошибка!Недостотаточно ингредиентов!");
+            System.out.println("Вам нужно:\nкофе- "+drink.getCoffee()+"\nвода- "+drink.getWater()+"\nмолоко- "+drink.getMilk());
+            ingredients.showIngredients();
+        }else{
         ingredients.spendIngredients(drink.getCoffee(),drink.getWater(),drink.getMilk());
         System.out.println("Вот ваш "+drink.getName());
+        logs.addLogs(Options.BUYDRINK.drinkMessage(drink.getName()));
     }
-
+    }
 }

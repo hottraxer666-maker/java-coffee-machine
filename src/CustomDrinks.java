@@ -4,7 +4,7 @@ import java.util.List;
 public class CustomDrinks {
     Ingredients ingredients=new Ingredients();
     Logs logs = new Logs();
-    private final List<CustomDrinks> drinks=new ArrayList<>();
+    private static final List<CustomDrinks> drinks=new ArrayList<>();
     private final String name;
     private final int drinksCoffee;
     private final int drinksWater;

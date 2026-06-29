@@ -65,7 +65,6 @@ public void restoreIngredients(){
 }
 public void showIngredients(){
     System.out.println("Доступные ингредиенты:\nКофе - "+coffee+"\nВода - "+water+"\nМолоко - "+milk);
-    logs.addLogs(Options.INGREDIENTSSTORE.getMessage());
 }
 
     public int getCoffee() {
